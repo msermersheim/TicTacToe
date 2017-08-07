@@ -1,0 +1,22 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "command line game",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msermersheim/TicTacToe.git"
+  },
+  "author": "Michael Sermersheim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msermersheim/TicTacToe/issues"
+  },
+  "homepage": "https://github.com/msermersheim/TicTacToe#readme",
+  "dependencies": {
+    "prompt": "^1.0.0"
+  }
+}
