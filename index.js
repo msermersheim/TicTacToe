@@ -22,6 +22,13 @@ var checkWinner = function(board, player, row, col) {
   return false;
 };
 
+var checkDraw = function (board) {
+  if ( !board[0].includes(' ') && !board[1].includes(' ') && !board[2].includes(' ') ) {
+    return true;
+  }
+  return false;
+};
+
 var printBoard = function(board) {
   console.log(board[0][0], '|', board[0][1],'|', board[0][2]);
   console.log(board[1][0], '|', board[1][1],'|', board[1][2]);
@@ -64,6 +71,18 @@ var takeTurn = function(currentPlayer, board) {
               console.log('Thanks for playing!');
             }
           });
+        } else if (checkDraw(board)){
+          printBoard(board);
+          console.log('It\'s a draw!');
+          console.log('Play again? (y/n)');
+          prompt.get(['answer'], function (err, result) {
+            if (err) { return onErr(err); }
+            if (result.answer.toLowerCase() === 'y') {
+              startGame();
+            } else {
+              console.log('Thanks for playing!');
+            }
+          });
         } else {
           currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
           takeTurn(currentPlayer, board);
@@ -74,3 +93,8 @@ var takeTurn = function(currentPlayer, board) {
 };
 
 startGame();
+
+function onErr(err) {
+  console.log(err);
+  return 1;
+}
